@@ -1,24 +1,30 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import { Autoplay } from "swiper/modules";
+
+// Brand Icons
 import { FcGoogle } from "react-icons/fc";
 import { FaAmazon, FaApple, FaFacebook, FaMicrosoft } from "react-icons/fa";
 
-// import Autoplay module
-import { Autoplay } from "swiper/modules";
-
-const BrandSwiper = () => {
+const HomeSection = () => {
   return (
-    <div className="py-10">
-      <h2 className="text-3xl text-secondary font-bold text-center mb-8">
+    <section className="py-16 bg-gray-50">
+
+      {/* Title */}
+      <h2 className="text-3xl font-bold text-center text-secondary mb-10">
         We’ve helped thousands of sales teams
       </h2>
+
+      {/* Brand Slider */}
       <Swiper
         spaceBetween={40}
-        slidesPerView={4}
+        slidesPerView={5}
         loop={true}
-        speed={3000}
-        grabCursor={true}
+        autoplay={{ delay: 1, disableOnInteraction: false }}
+        speed={3500}
+        modules={[Autoplay]}
+        className="mb-16"
       >
         <SwiperSlide className="flex justify-center">
           <FcGoogle className="text-6xl" />
@@ -37,11 +43,11 @@ const BrandSwiper = () => {
         </SwiperSlide>
 
         <SwiperSlide className="flex justify-center">
-          <FaMicrosoft className="text-6xl text-[#737373]" />
+          <FaMicrosoft className="text-6xl text-gray-500" />
         </SwiperSlide>
       </Swiper>
-    </div>
+    </section>
   );
 };
 
-export default BrandSwiper;
+export default HomeSection;
