@@ -1,11 +1,10 @@
 import React from "react";
-import Lojgo from "../../../../../Components/Logo/Lojgo";
-
+import Logo from "../../../../Components/Logo/Logo";
 const Footer = () => {
   return (
     <footer className="footer footer-horizontal footer-center text-primary-content p-10">
       <aside>
-        <Lojgo/>
+        <Logo />
         <p className="font-bold">
           ACME Industries Ltd.
           <br />

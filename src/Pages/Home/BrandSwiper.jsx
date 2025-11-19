@@ -7,10 +7,9 @@ import { Autoplay } from "swiper/modules";
 import { FcGoogle } from "react-icons/fc";
 import { FaAmazon, FaApple, FaFacebook, FaMicrosoft } from "react-icons/fa";
 
-const HomeSection = () => {
+const BrandSwiper = () => {
   return (
-    <section className="py-16 bg-gray-50">
-
+    <section className="py-16">
       {/* Title */}
       <h2 className="text-3xl font-bold text-center text-secondary mb-10">
         We’ve helped thousands of sales teams
@@ -21,11 +20,9 @@ const HomeSection = () => {
         spaceBetween={40}
         slidesPerView={5}
         loop={true}
-        autoplay={{ delay: 1, disableOnInteraction: false }}
         speed={3500}
         modules={[Autoplay]}
-        className="mb-16"
-      >
+        className="mb-16">
         <SwiperSlide className="flex justify-center">
           <FcGoogle className="text-6xl" />
         </SwiperSlide>
@@ -50,4 +47,4 @@ const HomeSection = () => {
   );
 };
 
-export default HomeSection;
+export default BrandSwiper;

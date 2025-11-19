@@ -1,5 +1,5 @@
 import React from "react";
-import Lojgo from "../../../../../../Components/Logo/Lojgo";
+import Logo from "../../../../Components/Logo/Logo";
 import { NavLink } from "react-router";
 import { LuArrowUpRight } from "react-icons/lu";
 
@@ -29,13 +29,11 @@ const Navbar = () => {
       {/* LEFT LOGO */}
       <div className="navbar-start">
         <a>
-          <Lojgo />
+          <Logo />
         </a>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 gap-10">
-          {link}
-        </ul>
+        <ul className="menu menu-horizontal px-1 gap-10">{link}</ul>
       </div>
       <div className="navbar-end flex items-center gap-4">
         <button
@@ -46,8 +44,7 @@ const Navbar = () => {
             text-gray-700 
             font-medium 
             hover:bg-gray-100
-          "
-        >
+          ">
           Sign In
         </button>
         <button
@@ -58,8 +55,7 @@ const Navbar = () => {
             font-semibold 
             rounded-xl 
             hover:bg-[#c8e85c]
-          "
-        >
+          ">
           Be a rider
         </button>
         <div className="w-10 h-10 rounded-full bg-black flex items-center justify-center">

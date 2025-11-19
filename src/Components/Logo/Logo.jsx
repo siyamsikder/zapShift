@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from '../../assets/logo.png'
-const Lojgo = () => {
+const Logo = () => {
     return (
         <div className='flex items-end'>
             <img src={logo} alt="" />
@@ -9,4 +9,4 @@ const Lojgo = () => {
     );
 };
 
-export default Lojgo;
+export default Logo;
