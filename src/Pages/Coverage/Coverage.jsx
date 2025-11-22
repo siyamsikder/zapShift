@@ -52,14 +52,11 @@ const Coverage = () => {
                 required
               />
             </label>
-            <div className="validator-hint hidden">
-              Enter valid email address
-            </div>
           </div>
-          <button className="btn btn-neutral join-item">Search</button>
+          <button className="btn bg-primary join-item">Search</button>
         </div>
       </form>
-      <div className="border-2 w-full h-[800px]">
+      <div className="border-2 border-primary w-full h-[800px]">
         <MapContainer
           center={position}
           zoom={7}

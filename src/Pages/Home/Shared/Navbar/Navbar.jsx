@@ -1,6 +1,6 @@
 import React from "react";
 import Logo from "../../../../Components/Logo/Logo";
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 import { LuArrowUpRight } from "react-icons/lu";
 
 const Navbar = () => {
@@ -65,17 +65,20 @@ const Navbar = () => {
 
       {/* RIGHT BUTTONS */}
       <div className="navbar-end flex items-center gap-3">
-        <button
-          className="
+        <Link to="/register">
+          {" "}
+          <button
+            className="
           px-6 py-2 
-          border border-gray-300 
           rounded-xl 
           text-gray-700 
           font-medium 
-          hover:bg-gray-100
+           hover:bg-primary
+          hover:border-2 border-primary
         ">
-          Sign In
-        </button>
+            Sign In
+          </button>
+        </Link>
 
         <button
           className="
@@ -84,7 +87,8 @@ const Navbar = () => {
           text-black 
           font-semibold 
           rounded-xl 
-          hover:bg-[#c8e85c]
+          hover:bg-white
+          hover:border-2 border-primary
         ">
           Be a Rider
         </button>
