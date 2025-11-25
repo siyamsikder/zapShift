@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router";
 import useAuth from "../../../Hooks/useAuth";
 
 const Login = () => {
-  const { loginUser, googleSignIn } = useAuth();
+  const {signInUser, googleSignIn } = useAuth();
   const navigate = useNavigate();
 
   const {
@@ -15,10 +15,10 @@ const Login = () => {
 
   // Email & Password Login
   const handleLogin = (data) => {
-    loginUser(data.email, data.password)
+    signInUser(data.email, data.password)
       .then((result) => {
         console.log("Logged in:", result.user);
-        navigate("/"); // Redirect to home after login
+        navigate("/"); 
       })
       .catch((error) => {
         console.error(error.message);
