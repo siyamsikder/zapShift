@@ -1,11 +1,13 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import useAuth from "../../../Hooks/useAuth";
 
 const Login = () => {
-  const {signInUser, googleSignIn } = useAuth();
+  const { signInUser, googleSignIn } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
+  console.log("in the login page", location);
 
   const {
     register,
@@ -18,7 +20,7 @@ const Login = () => {
     signInUser(data.email, data.password)
       .then((result) => {
         console.log("Logged in:", result.user);
-        navigate("/"); 
+        navigate(location?.state || "/");
       })
       .catch((error) => {
         console.error(error.message);
@@ -30,7 +32,7 @@ const Login = () => {
     googleSignIn()
       .then((res) => {
         console.log("Google Login Successful:", res.user);
-        navigate("/"); // Redirect after Google login
+        navigate(location?.state || "/");
       })
       .catch((err) => {
         console.error("Google Login Error:", err.message);
@@ -57,12 +59,16 @@ const Login = () => {
                 },
               })}
               className={`w-full border rounded-lg px-3 py-2 focus:outline-none ${
-                errors.email ? "border-red-400" : "border-gray-300 focus:border-black"
+                errors.email
+                  ? "border-red-400"
+                  : "border-gray-300 focus:border-black"
               }`}
               placeholder="Email"
             />
             {errors.email && (
-              <p className="text-red-500 mt-1 text-sm">{errors.email.message}</p>
+              <p className="text-red-500 mt-1 text-sm">
+                {errors.email.message}
+              </p>
             )}
           </div>
 
@@ -73,15 +79,22 @@ const Login = () => {
               type="password"
               {...register("password", {
                 required: "Password is required",
-                minLength: { value: 6, message: "Password must be at least 6 characters" },
+                minLength: {
+                  value: 6,
+                  message: "Password must be at least 6 characters",
+                },
               })}
               className={`w-full border rounded-lg px-3 py-2 focus:outline-none ${
-                errors.password ? "border-red-400" : "border-gray-300 focus:border-black"
+                errors.password
+                  ? "border-red-400"
+                  : "border-gray-300 focus:border-black"
               }`}
               placeholder="Password"
             />
             {errors.password && (
-              <p className="text-red-500 mt-1 text-sm">{errors.password.message}</p>
+              <p className="text-red-500 mt-1 text-sm">
+                {errors.password.message}
+              </p>
             )}
           </div>
 
@@ -95,8 +108,7 @@ const Login = () => {
           {/* Login Button */}
           <button
             type="submit"
-            className="w-full bg-[#D6FF6B] hover:bg-[#c5f257] transition font-medium py-2 rounded-lg"
-          >
+            className="w-full bg-[#D6FF6B] hover:bg-[#c5f257] transition font-medium py-2 rounded-lg">
             Login
           </button>
         </form>
@@ -104,7 +116,7 @@ const Login = () => {
         {/* Register Link */}
         <p className="text-center text-gray-600 mt-4">
           Don’t have an account?
-          <Link className="text-black font-semibold ml-1" to="/register">
+          <Link state={location.state} className="text-black font-semibold ml-1" to="/register">
             Register
           </Link>
         </p>
@@ -120,8 +132,7 @@ const Login = () => {
         <button
           type="button"
           onClick={handleGoogleLogin}
-          className="w-full border border-gray-300 rounded-lg py-2 flex items-center justify-center gap-2 hover:bg-gray-100 transition"
-        >
+          className="w-full border border-gray-300 rounded-lg py-2 flex items-center justify-center gap-2 hover:bg-gray-100 transition">
           <img
             src="https://www.svgrepo.com/show/475656/google-color.svg"
             alt="Google logo"

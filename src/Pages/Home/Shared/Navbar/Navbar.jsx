@@ -1,19 +1,19 @@
 import React from "react";
 import Logo from "../../../../Components/Logo/Logo";
-import { Link, NavLink } from "react-router";
+import { Link, NavLink, useLocation } from "react-router";
 import { LuArrowUpRight } from "react-icons/lu";
 import useAuth from "../../../../Hooks/useAuth";
 
 const Navbar = () => {
-  const { user ,logOut} = useAuth();
-   
-  const handleLogOut=()=>{
+  const { user, logOut } = useAuth();
+  const location =useLocation()
+  const handleLogOut = () => {
     logOut()
-    .then()
-    .catch(error=>{
-      console.log(error)
-    })
-  }
+      .then()
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   const links = (
     <>
       <li className="text-gray-600 font-medium">
@@ -77,8 +77,9 @@ const Navbar = () => {
       <div className="navbar-end flex items-center gap-3">
         {" "}
         {user ? (
-          <button onClick={handleLogOut}
-           className="
+          <button
+            onClick={handleLogOut}
+            className="
           px-6 py-2 
           rounded-xl 
           text-gray-700 
@@ -105,8 +106,9 @@ const Navbar = () => {
             </button>
           </Link>
         )}
-        <button
-          className="
+        <Link state={location.state} to="/rider">
+          <button
+            className="
           px-6 py-2 
           bg-primary
           text-black 
@@ -115,8 +117,9 @@ const Navbar = () => {
           hover:bg-white
           hover:border-2 border-primary
         ">
-          Be a Rider
-        </button>
+            Be a Rider
+          </button>
+        </Link>
         <div className="w-10 h-10 rounded-full bg-black flex items-center justify-center">
           <LuArrowUpRight className="text-primary text-xl" />
         </div>
