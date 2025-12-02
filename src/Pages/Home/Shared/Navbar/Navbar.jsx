@@ -29,7 +29,7 @@ const Navbar = () => {
         <NavLink to="/pricing">Pricing</NavLink>
       </li>
       <li className="text-gray-600 font-medium">
-        <NavLink to="/rider">Be a Rider</NavLink>
+        <NavLink to="/send-parcel">send Parcel </NavLink>
       </li>
     </>
   );
