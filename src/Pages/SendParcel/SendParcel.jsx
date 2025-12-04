@@ -15,7 +15,7 @@ const SendParcel = () => {
     register,
     handleSubmit,
     control,
-    formState: { errors },
+    // formState: { errors },
   } = useForm();
 
   // Extract Unique Regions
@@ -57,7 +57,8 @@ const SendParcel = () => {
         cost = minCharge + extraCharge;
       }
     }
-
+    console.log("const", cost);
+    data.cost = cost;
     // Confirm cost popup
     Swal.fire({
       title: "Agree with the Cost?",
